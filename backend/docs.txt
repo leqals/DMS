@@ -1,0 +1,23 @@
+1. staff uploads Assignment
+	The assignment includes 
+	i. submission date and time
+	ii. session of students 
+	iii. Assignment Course
+	
+	NB: Students are to be notified when the assignment gets uploaded
+	Do this by getting the list of students offering the course and sending notifications
+2. Student Uploads answers to staff assignment
+	the student answers consist of:
+	i. The assignment
+	ii. His answer 
+	iii. Date and Time submission
+	NB: 
+	- Notify staff when a certain percentage of the assignment has been submitted or the assignment Dead line is due
+	- Staffs should be able to grade students assignments and send feedback
+
+3. Staffs should upload course materials for differents courses ans sessions
+	i. The course materials should contain 
+		- the course object
+		- the session
+		- upload date 
+	ii. Students of that particular course for the current session should get a notification when the material is uploaded 

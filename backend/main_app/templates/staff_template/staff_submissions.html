@@ -1,0 +1,50 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style='width:100%'>
+                    <div class='card'>
+                        <h3 class='card-header'>Quick Report</h3>
+                        <p class='ml-4'>This Assignment is for {{total_course_students}} Students, so far {{total_submits}} have submitted. Hence {{percentage_submit}}% of the students have been confirmed to submitting their Assignment.</p
+                    </div>
+                    
+                    <div class="card-header">
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Student</th>
+                                    <th>Submitted At</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for submit in submissions %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{submit.student}}</td>
+                                    <td>{{submit.submitted_at}}</td>
+                                    <td>{{submit.grade}}</td>
+                                    <td>
+                                        <a href="{% url 'grade_assignment' submit.id %}" class="btn btn-secondary">Grade</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

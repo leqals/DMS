@@ -1,0 +1,54 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style='width:100%'>
+                    <div style='display:flex; align-items: center; justify-content:space-between; margin: 0.5rem 1rem; '>
+                        <h3 style='font-weight: 500; font-size: 1.3rem'>{{page_title}}</h3>
+                        <a href="{% url 'upload_assignment' %}" class="btn btn-secondary">Upload Assignment</a>
+                    </div>
+                    <div class="card-header">
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>SN</th>
+                                    <th>Course</th>
+                                    <th>Title</th>
+                                    <th>Due Date</th>
+                                    <th>Submissions</th>
+                                    <th>Percentage Submit</th>
+                                    <th>Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for assignment in assignments_list %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{assignment.course}}</td>
+                                    <td>{{assignment.title}}</td>
+                                    <td>{{assignment.due_date}}</td>
+                                    <td>{{assignment.submissions}}</td>
+                                    <td>{{assignment.percentage_submit}}</td>
+                                    <td>
+                                        <a href="{% url 'staff_submissions' assignment.id %}" class="btn btn-secondary">Check and Grade</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
